@@ -1,12 +1,3 @@
-# name: gnuykeaj
-# ---------------
-# Based on clearance, which is based off idan.
-# 1 line minimal, beautiful version of clearance.
-# Display the following bits on the left:
-# - Virtualenv name (if applicable, see https://github.com/adambrenecki/virtualfish)
-# - Current directory name
-# - Git branch and dirty state (if inside a git repo)
-
 function _git_branch_name
   echo (command git symbolic-ref HEAD 2> /dev/null | sed -e 's|^refs/heads/||')
 end
@@ -18,15 +9,16 @@ end
 function fish_prompt
   set -l last_status $status
 
-  set -l cyan (set_color cyan)
-  set -l yellow (set_color yellow)
+  set -l cyan (set_color 88c0d0)
+  set -l yellow (set_color ebcb8b)
   set -l red (set_color red)
   set -l blue (set_color blue)
-  set -l green (set_color green)
+  set -l green (set_color 8cbe8e)
   set -l normal (set_color normal)
 
-  set -l cwd $cyan(basename (pwd | sed "s:^$HOME:~:"))
-  echo 
+  # set -l cwd $cyan(basename (pwd | sed "s:^$HOME:~:"))
+  set -l cwd $cyan(prompt_pwd)
+  echo
   # Display [venvname] if in a virtualenv
   if set -q VIRTUAL_ENV
       echo -n -s (set_color -b cyan black) '[' (basename "$VIRTUAL_ENV") ']' $normal ' '
