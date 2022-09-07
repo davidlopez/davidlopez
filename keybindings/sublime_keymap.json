@@ -1,0 +1,44 @@
+[
+	// ================ intellij like milti cursor ================
+	{ "keys": ["alt", "alt+up"], "command": "select_lines", "args": {"forward": false} },
+	{ 
+		"keys": ["alt+up"], 
+		"command": "select_lines", 
+		"args": {"forward": false}, 
+		"context": [
+			{
+				"key": "last_command", 
+				"operator": "equal",
+				"operand": "select_lines"
+			}
+		] 
+	},
+	{ "keys": ["alt", "alt+down"], "command": "select_lines", "args": {"forward": true} },
+	{ 
+		"keys": ["alt+down"], 
+		"command": "select_lines", 
+		"args": {"forward": true}, 
+		"context": [
+			{
+				"key": "last_command", 
+				"operator": "equal",
+				"operand": "select_lines"
+			}
+		] 
+	},
+	// ================ intellij like milti cursor ================
+
+	{ "keys": ["alt+shift+g"], "command": "split_selection_into_lines" },
+	{ "keys": ["ctrl+g"], "command": "find_under_expand" },
+
+	{ "keys": ["super+shift+up"], "command": "swap_line_up" },
+	{ "keys": ["super+shift+down"], "command": "swap_line_down" },
+
+	{ "keys": ["super+d"], "command": "duplicate_line" },
+	{ "keys": ["ctrl+up"], "command": "pass" },
+	{ "keys": ["shift", "shift"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
+	{ "keys": ["super+p"], "command": "show_overlay", "args": {"overlay": "command_palette"} },
+	{ "keys": ["super+shift+w"], "command": "close_all" },
+	{ "keys": ["super+shift+p"], "command": "pass"},
+]
+
